@@ -1,5 +1,7 @@
 package com.bridgelab.stack;
 
+import java.util.EmptyStackException;
+
 /*********************************************
  * @author mihir
  *
@@ -32,6 +34,59 @@ public class DsaStack
 		tempNode.link = top;
 		top = tempNode;
 		size++;
+	}
+	
+	/**
+	 * Name : pop
+	 * 
+	 * Description : Popping out last inserted data / element from the stack.
+	 * 
+	 * @return
+	 */
+	public int pop()
+	{
+		if(isEmpty())
+		{
+			throw new EmptyStackException();
+		}
+		int result = top.data;
+		top = top.link;
+		size--;
+		return result;
+	}
+	
+	/**
+	 * Name : peek.
+	 * 
+	 * Description : this method will only print the last inserted data.
+	 * 
+	 * @return
+	 */
+	public int peek()
+	{
+		if(isEmpty())
+		{
+			throw new EmptyStackException();
+		}
+		return top.data;
+	}
+	
+	/**
+	 * @return
+	 * This function will return size of the stack.
+	 */
+	public int size()
+	{
+		return size;
+	}
+	
+	/**
+	 * @return
+	 * Checking if stack is empty or not.
+	 */
+	public boolean isEmpty()
+	{
+		return size == 0;
 	}
 	
 	/**
